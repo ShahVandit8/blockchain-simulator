@@ -50,7 +50,7 @@ export default function LandingPage() {
               >
                 Features
               </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://github.com/ShahVandit8/blockchain-simulator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 GitHub
               </a>
             </div>
@@ -66,47 +66,6 @@ export default function LandingPage() {
 
       <main>
         {/* Hero Section */}
-        {/* <section className="py-24 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="container mx-auto px-4"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-              <span className="text-white">Visualize & Learn</span>
-              <br />
-              <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-                Blockchain
-              </span>{" "}
-              <span className="text-white">Technology</span>
-            </h1>
-            <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-              Interactive blockchain simulator for developers, students, and
-              enthusiasts. Create blocks, make transactions, and visualize the
-              entire process in real-time.
-            </p>
-            <div className="flex justify-center space-x-4">
-              <Link href="/simulator">
-                <Button
-                  size="lg"
-                  className="bg-white text-black hover:bg-gray-200"
-                >
-                  Try Simulator
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 hover:bg-white/10"
-              >
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
-              </Button>
-            </div>
-          </motion.div>
-        </section> */}
         <section className="relative overflow-hidden py-24 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -235,7 +194,7 @@ export default function LandingPage() {
                 BlockchainX
               </a>
               . The source code is available on{" "}
-              <a href="https://github.com/ShahVandit8" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              <a href="https://github.com/ShahVandit8/blockchain-simulator" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
                 GitHub
               </a>
               .

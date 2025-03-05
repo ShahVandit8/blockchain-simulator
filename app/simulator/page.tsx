@@ -1,13 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { LogConsole } from "@/components/log-console";
 import Link from "next/link";
 import {
@@ -31,34 +29,26 @@ import {
   Wallet,
   ArrowLeftRight,
   Plus,
-  Settings,
   ArrowLeft,
 } from "lucide-react";
 import { ModeToggle } from "@/components/theme-toggle";
 import {
   Block,
   Blockchain,
-  Transaction,
   Wallet as WalletType,
   constructMerkleTree,
-  generateWalletKeyPair,
 } from "@/lib/blockchain";
-import Image from "next/image";
 
 export default function BlockchainSimulator() {
   const [AppBlockchain] = useState(() => new Blockchain());
-  // const AppBlockchain = new Blockchain();
 
   const [logs, setLogs] = useState<{ message: string; timestamp: Date }[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [selectedBlock, setSelectedBlock] = useState<Block | null>(null);
   const [isNewTransactionOpen, setIsNewTransactionOpen] = useState(false);
   const [isNewWalletOpen, setIsNewWalletOpen] = useState(false);
   const [isMiningOpen, setIsMiningOpen] = useState(false);
   const [nonce, setNonce] = useState(0);
   const [hash, setHash] = useState("");
   const [timeElapsed, setTimeElapsed] = useState(0);
-  const [nonceDisplay, setNonceDisplay] = useState(0);
   const [isMining, setIsMining] = useState(false);
   const [mined, setMined] = useState("");
   const [isPendingTransactionsEmpty, setIsPendingTransactionsEmpty] = useState(true);

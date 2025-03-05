@@ -19,12 +19,23 @@ export const metadata: Metadata = {
     siteName: "BlockchainX",
     type: "website",
     locale: "en_US",
+    images: [{
+      url: "https://raw.githubusercontent.com/ShahVandit8/repo-storage/refs/heads/main/blockchain-simulator/ogimage/og.png",
+      width: 1200,
+      height: 630,
+      alt: "BlockchainX - Interactive Blockchain Simulator & Visualizer",
+    }],
   },
   twitter: {
     card: "summary_large_image",
     title: "BlockchainX - Interactive Blockchain Simulator & Visualizer",
     description: "BlockchainX is an interactive blockchain simulator to visualize mining, create wallets, and send transactions in real-time. Learn blockchain and Bitcoin mining easily.",
-    images: ["https://i.ibb.co/sJ2WsJvz/og-5.png"],
+    images: [{
+      url: "https://raw.githubusercontent.com/ShahVandit8/repo-storage/refs/heads/main/blockchain-simulator/ogimage/og.png",
+      width: 1200,
+      height: 630,
+      alt: "BlockchainX - Interactive Blockchain Simulator & Visualizer",
+    }],
   },
   alternates: {
     canonical: "https://shahvandit8.github.io/blockchain-simulator/",

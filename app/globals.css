@@ -103,6 +103,10 @@
 
 
 /* Custom scrollbar styles */
+html {
+  scroll-behavior: smooth;
+}
+
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--primary)) transparent;
