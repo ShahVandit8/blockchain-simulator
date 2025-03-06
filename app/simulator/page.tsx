@@ -51,7 +51,8 @@ export default function BlockchainSimulator() {
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [isMining, setIsMining] = useState(false);
   const [mined, setMined] = useState("");
-  const [isPendingTransactionsEmpty, setIsPendingTransactionsEmpty] = useState(true);
+  const [isPendingTransactionsEmpty, setIsPendingTransactionsEmpty] =
+    useState(true);
   const [payload, setPayload] = useState("");
   const [newTransaction, setNewTransaction] = useState({
     from: "",
@@ -186,7 +187,6 @@ export default function BlockchainSimulator() {
       previousHash: string,
       merkleRoot: string
     ) => {
-
       const newHash = await AppBlockchain.getHash(
         previousHash,
         merkleRoot,
@@ -198,7 +198,8 @@ export default function BlockchainSimulator() {
 
       if (newHash.startsWith("0".repeat(AppBlockchain.difficulty))) {
         setIsMining(false);
-        setMined("Successfully mined a new block!!");
+        setMined("Successfully mined block number " + AppBlockchain.chain.length + "!!");
+        addLog("Successfully mined block number " + AppBlockchain.chain.length + "!!");
         AppBlockchain.mine();
         return;
       }
@@ -272,7 +273,6 @@ export default function BlockchainSimulator() {
                     <div className="space-y-2">
                       <label>Name</label>
                       <Input
-                        value={newWallet.name}
                         onChange={(e) =>
                           setNewWallet({ ...newWallet, name: e.target.value })
                         }
@@ -281,7 +281,8 @@ export default function BlockchainSimulator() {
                     <div className="space-y-2">
                       <label>Initial Balance</label>
                       <Input
-                        value={newWallet.balance}
+                        type="number"
+                        placeholder="0.00"
                         onChange={(e) =>
                           setNewWallet({
                             ...newWallet,
@@ -356,7 +357,6 @@ export default function BlockchainSimulator() {
                     <div className="space-y-2">
                       <label>To Wallet</label>
                       <Select
-                        value={newTransaction.to}
                         onValueChange={(value) =>
                           setNewTransaction({ ...newTransaction, to: value })
                         }
@@ -383,14 +383,15 @@ export default function BlockchainSimulator() {
                     <div className="space-y-2">
                       <label>Amount</label>
                       <Input
-                        value={newTransaction.amount}
+                        type="number"
+                        placeholder="0.00"
                         onChange={(e) =>
                           setNewTransaction({
                             ...newTransaction,
                             amount: parseFloat(e.target.value),
                           })
                         }
-                      />
+                      ></Input>
                     </div>
                     <Button onClick={createTransaction} className="w-full">
                       Create Transaction
@@ -422,9 +423,8 @@ export default function BlockchainSimulator() {
                     {"Mine Block"}
                   </Button>
                 </DialogTrigger>
-                {
-                  !isPendingTransactionsEmpty ? (
-                    <DialogContent className="max-w-4xl">
+                {!isPendingTransactionsEmpty ? (
+                  <DialogContent className="max-w-4xl">
                     <DialogHeader>
                       <DialogTitle>
                         Mining Visualizer{" "}
@@ -442,6 +442,7 @@ export default function BlockchainSimulator() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
+                        className="text-lg font-bold text-center mb-8 text-green-600"
                       >
                         {mined}
                       </motion.div>
@@ -481,21 +482,22 @@ export default function BlockchainSimulator() {
                             </div>
                           </div>
                         </Card>
-  
+
                         <div className="col-span-2">
                           <p className="text-sm">
-                            <span className="font-bold">PoW Difficulty:</span> 3 (
-                            <span className="text-red-500">000RANDOMHASH</span>)
+                            <span className="font-bold">PoW Difficulty:</span> 3
+                            (<span className="text-red-500">000RANDOMHASH</span>
+                            )
                           </p>
                           <p className="text-sm mt-1">
-                            <span className="font-bold">Hash Rules:</span> SHA256(
-                            previousHash + merkleRoot + nonce )
+                            <span className="font-bold">Hash Rules:</span>{" "}
+                            SHA256( previousHash + merkleRoot + nonce )
                           </p>
                           <p className="text-sm mt-1">
                             <span className="font-bold">Time Elapsed:</span>{" "}
                             {timeElapsed} sec
                           </p>
-  
+
                           <div className="mt-3">
                             <p className="text-sm font-bold">Payload</p>
                             <textarea
@@ -508,19 +510,21 @@ export default function BlockchainSimulator() {
                       </div>
                     </div>
                   </DialogContent>
-                  ) : (
-                    <DialogContent className="max-w-4xl">
-                      <DialogHeader>
-                        <DialogTitle className="my-4">No pending transactions</DialogTitle>
-                        <DialogDescription>
-                          There are no pending transactions to mine.
-                          <br />
-                          Add some transactions to the pending transactions list before mining.
-                        </DialogDescription>
-                      </DialogHeader>
-                    </DialogContent>
-                  )
-                }
+                ) : (
+                  <DialogContent className="max-w-4xl">
+                    <DialogHeader>
+                      <DialogTitle className="my-4">
+                        No pending transactions
+                      </DialogTitle>
+                      <DialogDescription>
+                        There are no pending transactions to mine.
+                        <br />
+                        Add some transactions to the pending transactions list
+                        before mining.
+                      </DialogDescription>
+                    </DialogHeader>
+                  </DialogContent>
+                )}
               </Dialog>
             </div>
           </div>

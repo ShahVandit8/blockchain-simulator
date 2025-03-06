@@ -190,7 +190,7 @@ export default function LandingPage() {
           <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
             <p>
               Built with ❤️ and ☕ by <a href="https://vandit-shah.me" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">Vandit Shah</a> |{" "}
-              <a href="/" className="text-foreground hover:text-primary transition-colors">
+              <a href="/blockchain-simulator" className="text-foreground hover:text-primary transition-colors">
                 BlockchainX
               </a>
               . The source code is available on{" "}
