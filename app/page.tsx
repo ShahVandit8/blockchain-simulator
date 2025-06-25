@@ -96,6 +96,7 @@ export default function LandingPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
+              <a href="https://github.com/ShahVandit8/blockchain-simulator" >
               <Button
                 size="lg"
                 variant="outline"
@@ -104,6 +105,7 @@ export default function LandingPage() {
                 <Github className="mr-2 h-4 w-4" />
                 GitHub
               </Button>
+              </a>
             </div>
           </motion.div>
 
